@@ -287,7 +287,7 @@ In the root directory of your project create file `package.json` with this conte
 ```javascript
 {
   "name": "grunt-workshop",
-  "version": "0.1"
+  "version": "0.0.1"
 }
 ```
 
@@ -331,7 +331,7 @@ Now check your project directory and you should see a new folder `node-modules` 
 ```javascript
 {
   "name": "grunt-workshop",
-  "version": "0.1",
+  "version": "0.0.1",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
