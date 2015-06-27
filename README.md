@@ -360,7 +360,7 @@ Now check your project directory and you should see a new folder `node-modules` 
 As the first task we are going to make our page little bit less ugly so Grumpy Cat is happy (not impossible! :smirk:). Check `src/less` directory. There are LESS files we need to compile to CSS.
 
 1. Create a task `less` with some target name that will take files `src/less/base.less` and `src/less/modules/header.less` and will compile them to file `main.css` in the `public/css` directory. We won't use any special options.
-2. Enable plugin `grunt-contrib-less` inside your `Gruntfile`
+2. Enable plugin `grunt-contrib-less` by adding `grunt.loadNpmTasks('grunt-contrib-less');` inside your `Gruntfile`
 3. Your `Gruntfile` should look like this now (when compact form used for files):
 
   ```javascript
