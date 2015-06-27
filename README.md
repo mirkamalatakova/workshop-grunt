@@ -411,7 +411,7 @@ Check source code of `index.html`. In the header there are tags for 3 social ico
     all: {
       src: '',     // rule matching source path and all your files
       dest: '',    // destinaton path to your sprite image  
-      destCss: ''  // destination path to your sprites CSS file,
+      destCss: '', // destination path to your sprites CSS file,
       padding: 0   // change to some other value if you want some spacing between icons
     }
   }
