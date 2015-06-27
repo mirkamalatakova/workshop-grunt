@@ -359,7 +359,7 @@ Now check your project directory and you should see a new folder `node-modules` 
 
 As the first task we are going to make our page little bit less ugly so Grumpy Cat is happy (not impossible! :smirk:). Check `src/less` directory. There are LESS files we need to compile to CSS.
 
-1. Create a task `less` with some target name that will take files `src/less/base.less` and `src/less/modules/header.less` and will compile them to file `main.css` in the `public/css` directory. We won't use any special options.
+1. Create a task `less` with some target name that will take files `src/less/base.less` and `src/less/modules/header.less` and will compile them to file `main.css` in the `dist/css` directory. We won't use any special options.
 2. Enable plugin `grunt-contrib-less` by adding `grunt.loadNpmTasks('grunt-contrib-less');` inside your `Gruntfile`
 3. Your `Gruntfile` should look like this now (when compact form used for files):
 
@@ -374,7 +374,7 @@ As the first task we are going to make our page little bit less ugly so Grumpy C
       less: {
         build: {
           src: ['src/less/base.less', 'src/less/modules/header.less'],
-          dest: 'public/css/main.css'
+          dest: 'dist/css/main.css'
         }
       }
 
@@ -392,7 +392,7 @@ As the first task we are going to make our page little bit less ugly so Grumpy C
 
   `grunt less`
 
-  New directory `public/css/` was created and you should see file `main.css` which has content of both LESS files we specified in the task.
+  New directory `dist/css/` was created and you should see file `main.css` which has content of both LESS files we specified in the task.
 5. We have our CSS ready (apart from sprite CSS that we will create in the next task) so check your browser and Grumpy Cat should be happy.
 6. Now let's assume we want `base.less` to be always the first one in the created CSS file but then we want all LESS files from `src/less/modules/` folder. With current configuration we would need to manually update `src` property in our task everytime some LESS file was added or deleted.
 
