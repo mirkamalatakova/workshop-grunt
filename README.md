@@ -3,6 +3,45 @@
 
 As a result of this wokshop you will know how to use Grunt task runner to automate your front-end development workflow.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Introduction](#introduction)
+- [What you need](#what-you-need)
+- [How it works](#how-it-works)
+  - [package.json](#packagejson)
+  - [Installing Grunt and Grunt plugins](#installing-grunt-and-grunt-plugins)
+  - [Gruntfile](#gruntfile)
+      - [The "wrapper" function](#the-wrapper-function)
+      - [Project and task configuration](#project-and-task-configuration)
+      - [Loading Grunt plugins and tasks](#loading-grunt-plugins-and-tasks)
+      - [Registering tasks](#registering-tasks)
+    - [Task Configuration, Targets and Options](#task-configuration-targets-and-options)
+    - [Files](#files)
+    - [Globbing patterns](#globbing-patterns)
+    - [Templates](#templates)
+  - [Running Grunt tasks](#running-grunt-tasks)
+- [Let's get the party started!](#lets-get-the-party-started)
+  - [Installation & Basic setup](#installation-&-basic-setup)
+    - [1. Installing Node.js and updating npm](#1-installing-nodejs-and-updating-npm)
+    - [2. Installing Grunt command line interface (CLI)](#2-installing-grunt-command-line-interface-cli)
+    - [3. Creating package.json](#3-creating-packagejson)
+    - [4. Creating Gruntfile](#4-creating-gruntfile)
+    - [5. Installing Grunt and Grunt plugins](#5-installing-grunt-and-grunt-plugins)
+  - [Tasks](#tasks)
+    - [1. Compile LESS files to CSS](#1-compile-less-files-to-css)
+    - [2. Create sprite image](#2-create-sprite-image)
+    - [3. Minify CSS](#3-minify-css)
+    - [4. Lint JavaScript using JSHint](#4-lint-javascript-using-jshint)
+    - [5. Concat JavaScript](#5-concat-javascript)
+    - [6. Minify JavaScript](#6-minify-javascript)
+    - [7. Minify images](#7-minify-images)
+    - [8. Run predefined tasks whenever files are changed](#8-run-predefined-tasks-whenever-files-are-changed)
+    - [9. Automatically refresh browser when files are changed](#9-automatically-refresh-browser-when-files-are-changed)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Introduction
 * Grunt - the JavaScript **task runner**
 * Great for **automation** and for improving your front-end development workflow
