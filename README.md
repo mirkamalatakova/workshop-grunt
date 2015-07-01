@@ -37,8 +37,9 @@ As a result of this wokshop you will know how to use Grunt task runner to automa
     - [5. Concat JavaScript](#5-concat-javascript)
     - [6. Minify JavaScript](#6-minify-javascript)
     - [7. Minify images](#7-minify-images)
-    - [8. Run predefined tasks whenever files are changed](#8-run-predefined-tasks-whenever-files-are-changed)
-    - [9. Automatically refresh browser when files are changed](#9-automatically-refresh-browser-when-files-are-changed)
+    - [8. Copy fonts](#8-copy-fonts)
+    - [9. Run predefined tasks whenever files are changed](#9-run-predefined-tasks-whenever-files-are-changed)
+    - [10. Automatically refresh browser when files are changed](#10-automatically-refresh-browser-when-files-are-changed)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -354,6 +355,7 @@ module.exports = function (grunt) {
 #### 5. Installing Grunt and Grunt plugins
 For the purpose of this tutorial we will install Grunt and these plugins:
 * grunt-contrib-concat
+* grunt-contrib-copy
 * grunt-contrib-cssmin
 * grunt-contrib-imagemin
 * grunt-contrib-jshint
@@ -364,7 +366,7 @@ For the purpose of this tutorial we will install Grunt and these plugins:
 
 So go to the root directory of your project and install the latest version of Grunt and all plugins with this single command:
 
-`npm install grunt grunt-contrib-concat grunt-contrib-cssmin grunt-contrib-imagemin grunt-contrib-jshint grunt-contrib-less grunt-contrib-uglify grunt-contrib-watch grunt-spritesmith --save-dev`
+`npm install grunt grunt-contrib-concat grunt-contrib-copy grunt-contrib-cssmin grunt-contrib-imagemin grunt-contrib-jshint grunt-contrib-less grunt-contrib-uglify grunt-contrib-watch grunt-spritesmith --save-dev`
 
 Now check your project directory and you should see a new folder `node-modules` with all of our development dependencies that we just installed. A `devDependencies` property is also added to `package.json`, listing the names and current version numbers of our application’s development dependencies:
 ```javascript
@@ -374,6 +376,7 @@ Now check your project directory and you should see a new folder `node-modules` 
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-cssmin": "^0.12.3",
     "grunt-contrib-imagemin": "^0.9.4",
     "grunt-contrib-jshint": "^0.11.2",
@@ -541,8 +544,8 @@ Now when our JavaScript code doesn't have any errors, we can concatenate these f
     options: {
       separator: ';' // concatenated files will be joined on this string
     },
-    all : {
-      src : [''],  // set to all JS files in 'src/js/'
+    all: {
+      src: [''],  // set to all JS files in 'src/js/'
       dest: ''     // destination path with a filename 
     }
   }
@@ -560,10 +563,10 @@ In `dist/js/` we have concatenated JavaScript files in `main.js`. Now we want to
 
 1. Create a task `uglify` with some target name that will minify `main.js` in `dist/js/` and will create a new file `main.min.js` in the same directory. For `src` property use `<%= ... %>` delimiters that will set `dist` property from the `concat` task:
   ```javascript
-  uglify : {
-    dist : {
-      src : '',   // source path and file from dist property in the concat task, using <%= ... %>
-      dest : ''   // destination path and file name
+  uglify: {
+    dist: {
+      src: '',   // source path and file from dist property in the concat task, using <%= ... %>
+      dest: ''   // destination path and file name
     }
   }
   ```
@@ -604,8 +607,17 @@ In `src/images` we have few images that we want to minify.
 3. Run task: `grunt imagemin`.
 4. Check directory `dist/images/`. There should be new optimised images.
 
+#### 8. Copy fonts
+**Plugin:** [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy)
 
-#### 8. Run predefined tasks whenever files are changed
+In `src/fonts` we have fonts that we want to copy to the `dist/fonts` directory.
+
+1. Create a task `copy` with target `fonts` that will copy all files from `src/fonts` to the `dist/fonts` directory. No hint provided for this task.
+2. Enable plugin `grunt-contrib-copy` inside your `Gruntfile`
+3. Run task: `grunt copy`.
+4. Check directory `dist/fonts/`. There should be fonts files copied from the source directory.
+
+#### 9. Run predefined tasks whenever files are changed
 **Plugin:** [grunt-contrib-watch](https://www.npmjs.com/package/grunt-contrib-watch)
 
 In all previous tasks we had to run `grunt` command manually everytime when we wanted some task to be run. But we can use other great plugin that will run predefined tasks whenever watched file patterns are added, changed or deleted.
@@ -645,7 +657,7 @@ In all previous tasks we had to run `grunt` command manually everytime when we w
 6. You can also try to change LESS, JavaScript or other files and all defined tasks should be run automatically as you are making your changes.
 
 
-#### 9. Automatically refresh browser when files are changed
+#### 10. Automatically refresh browser when files are changed
 We can also make our browser to automatically refresh when files are changed.
 
 1. Add option `livereload` in `watch` task or for its targets when you want your browser should be refreshed like: 
