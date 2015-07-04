@@ -679,7 +679,7 @@ We can also make our browser to automatically refresh when files are changed.
 2. To enable live reload on your page, add a script tag in `index.html` before the closing `</body>` tag pointing to the `livereload.js` script:
   
   ```javascript
-  <script src="//localhost:35729/livereload.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
   ```
   *Note: 35729 is default and recommended port. If needed you can also use `livereload: PORT_NUMBER` with yout custom port instead of `livereload: true`.*
 
